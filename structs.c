@@ -38,7 +38,7 @@ int printstats(struct first *p){
   printf("Name: %s\nVault:%f\nBars:%f\nBeam:%f\nFloor:%f\nAll-around:%f\n",p->a,p->b,p->d,p->f,p->h,p->j);
   return 1;
 }
-int makerandom(struct first *p){
+struct first * makerandom(struct first *p){
 srand((long)time(NULL));
 int a =rand()%5;
 if (a==0) p->a="Alice";
@@ -47,8 +47,9 @@ if (a==2) p->a="Barbara";
 if (a==3) p->a="Julie";
 if (a==4) p->a="Jamie";
 changescores(p,7.1+0.1*(rand()%30),7.1+0.1*(rand()%30),7.1+0.1*(rand()%30),7.1+0.1*(rand()%30));
-return 1;
+return p;
 }
+
 int main(){
 struct first a;
 struct first *toa = &a;
@@ -71,7 +72,7 @@ changescore(toa,"vault",8.4);
 printf("Printing her stats: \n");
 printstats(toa);
 printf("\n\nCreating a new random athlete and printing her stats:\n");
-makerandom(tob);
-printstats(tob);
+printstats(makerandom(tob));
+
 return 1;
 }
