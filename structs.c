@@ -77,7 +77,9 @@ changescore(toa,"beam",7.1);
 printf("Printing her stats: \n");
 printstats(toa);
 printf("\n\nCreating a new random athlete and printing her stats:\n");
+printf("Random athletes can only very seldom get scores below a 7.\n");
 printstats(makerandom(tob));
+printf("End of tests.\n");
 
 return 1;
 }
